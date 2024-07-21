@@ -36,7 +36,7 @@ public class ExplodeOnClick : MonoBehaviour {
 
                         if (!Physics.Raycast(hit.point, (Hits[i].transform.position - hit.point).normalized, distance, BlockExplosionLayer.value)) {
                             rigidbody.AddExplosionForce(ExplosiveForce, hit.point, Radius);
-                            Debug.Log($"Would hit {rigidbody.name} for {Mathf.FloorToInt(Mathf.Lerp(MaxDamage, MinDamage, distance / Radius))}");
+                            //Debug.Log($"Would hit {rigidbody.name} for {Mathf.FloorToInt(Mathf.Lerp(MaxDamage, MinDamage, distance / Radius))}");
                         }
                     }
                 }
