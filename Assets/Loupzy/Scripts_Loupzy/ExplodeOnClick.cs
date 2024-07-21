@@ -15,7 +15,7 @@ public class ExplodeOnClick : MonoBehaviour {
     public float ExplosiveForce;
 
     public float timer;
-    public float maxTimer;
+    public float maxTimer = 30f;
     public float curRadius;
     public TextMeshProUGUI timerText;
 

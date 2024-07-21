@@ -1912,9 +1912,9 @@ MonoBehaviour:
   MinDamage: 15
   ExplosiveForce: 1000
   timer: 0
-  maxTimer: 0
+  maxTimer: 30
   curRadius: 0
-  timerText: {fileID: 0}
+  timerText: {fileID: 1605619247}
 --- !u!1 &996433014
 GameObject:
   m_ObjectHideFlags: 0
