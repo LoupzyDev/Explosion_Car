@@ -1,62 +1,74 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class RearWheelDrive : MonoBehaviour
-{
-    private WheelCollider[] wheels;
+public class RearWheelDrive : MonoBehaviour {
+    public WheelCollider frontLeftWheel;
+    public WheelCollider frontRightWheel;
+    public WheelCollider rearLeftWheel;
+    public WheelCollider rearRightWheel;
 
-    public float maxAngle = 30f;
-    public float maxTorque = 300f;
+    public float maxAngle = 30f; // Puedes reducir este valor para mejorar la maniobrabilidad
+    public float maxTorque = 100000f;
     public GameObject wheelShape;
 
-    private void Start()
-    {
-        wheels = GetComponentsInChildren<WheelCollider>();
+    public float maxBrakeTorque = 500f; // Añadido para ajustar el par de frenado máximo
 
-        foreach (var wheel in wheels)
-        {
-            // Crear formas de ruedas solo cuando sea necesario
-            if (wheelShape != null)
-            {
-                var ws = Instantiate(wheelShape);
-                ws.transform.parent = wheel.transform;
-            }
+    private Rigidbody rb;
+
+    private void Start() {
+        // Crear formas de ruedas solo cuando sea necesario
+        if (wheelShape != null) {
+            CreateWheelShape(frontLeftWheel);
+            CreateWheelShape(frontRightWheel);
+            CreateWheelShape(rearLeftWheel);
+            CreateWheelShape(rearRightWheel);
+        }
+
+        rb = GetComponent<Rigidbody>();
+        //rb.centerOfMass = new Vector3(0, -0.9f, 0); // Bajando el centro de masa
+    }
+
+    private void Update() {
+        float angle = maxAngle * Input.GetAxis("Horizontal");
+        float torque = maxTorque * -Input.GetAxis("Vertical");
+        bool handbrake = Input.GetKey(KeyCode.Space);
+
+        // Las ruedas delanteras giran
+        frontLeftWheel.steerAngle = angle;
+        frontRightWheel.steerAngle = angle;
+
+        // Las ruedas traseras impulsan
+        rearLeftWheel.motorTorque = torque;
+        rearRightWheel.motorTorque = torque;
+
+        if (handbrake) {
+            rearLeftWheel.brakeTorque = maxBrakeTorque;
+            rearRightWheel.brakeTorque = maxBrakeTorque;
+        } else {
+            rearLeftWheel.brakeTorque = 0;
+            rearRightWheel.brakeTorque = 0;
+        }
+
+        // Actualizar la posición y rotación de las formas de las ruedas
+        UpdateWheelPose(frontLeftWheel);
+        UpdateWheelPose(frontRightWheel);
+        UpdateWheelPose(rearLeftWheel);
+        UpdateWheelPose(rearRightWheel);
+    }
+
+    private void CreateWheelShape(WheelCollider wheel) {
+        if (wheelShape != null && wheel != null) {
+            var ws = Instantiate(wheelShape);
+            ws.transform.parent = wheel.transform;
         }
     }
 
-    private void Update()
-    {
-        float angle = maxAngle * Input.GetAxis("Horizontal");
-        float torque = maxTorque * Input.GetAxis("Vertical");
-        bool handbrake = Input.GetKey(KeyCode.Space);
+    private void UpdateWheelPose(WheelCollider collider) {
+        if (wheelShape != null && collider != null) {
+            collider.GetWorldPose(out Vector3 pos, out Quaternion quat);
+            Transform shapeTransform = collider.transform.GetChild(0);
 
-        foreach (var wheel in wheels)
-        {
-            // Las ruedas delanteras giran y las traseras impulsan
-            if (wheel.transform.localPosition.z > 0)
-                wheel.steerAngle = angle;
-
-            if (wheel.transform.localPosition.z < 0)
-            {
-                wheel.motorTorque = torque;
-                if (handbrake)
-                {
-                    wheel.brakeTorque = Mathf.Infinity; // Activar freno de mano
-                }
-                else
-                {
-                    wheel.brakeTorque = 0; // Desactivar freno de mano
-                }
-            }
-
-            // Actualizar las ruedas visuales si existen
-            if (wheelShape != null)
-            {
-                wheel.GetWorldPose(out Vector3 pos, out Quaternion quat);
-                Transform shapeTransform = wheel.transform.GetChild(0);
-                shapeTransform.position = pos;
-                shapeTransform.rotation = quat;
-            }
+            shapeTransform.position = pos;
+            shapeTransform.rotation = quat;
         }
     }
 }

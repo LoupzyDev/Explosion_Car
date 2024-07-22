@@ -7,6 +7,7 @@ public class PanelManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gamePanel;
 
+
     public void StartGame()
     {
         Time.timeScale = 1f;

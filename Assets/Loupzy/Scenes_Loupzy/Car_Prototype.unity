@@ -1880,13 +1880,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.078459114, z: 0, w: 0.99691737}
-  m_LocalPosition: {x: -1.45, y: 2.72, z: -13.2}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 17.919998, y: 6.37, z: 0.029997826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1818124693}
-  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 0}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParticleSystemPrefab: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   MaxHits: 25
-  Radius: 2
+  Radius: 100
   HitLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1910,9 +1910,9 @@ MonoBehaviour:
     m_Bits: 1
   MaxDamage: 50
   MinDamage: 15
-  ExplosiveForce: 1000
+  ExplosiveForce: 10000
   timer: 0
-  maxTimer: 30
+  maxTimer: 2
   curRadius: 0
   timerText: {fileID: 1605619247}
 --- !u!1 &996433014
@@ -2082,7 +2082,7 @@ GameObject:
   - component: {fileID: 1140175308}
   - component: {fileID: 1140175309}
   m_Layer: 0
-  m_Name: Wheel (1)
+  m_Name: Wheel_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2126,13 +2126,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2190,17 +2190,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1159170452
 Canvas:
   m_ObjectHideFlags: 0
@@ -2210,7 +2210,7 @@ Canvas:
   m_GameObject: {fileID: 1159170449}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2233,7 +2233,7 @@ RectTransform:
   m_GameObject: {fileID: 1159170449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1605619246}
@@ -2241,9 +2241,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.2, y: 0.4}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1187811772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,7 +2416,7 @@ GameObject:
   - component: {fileID: 1464818034}
   - component: {fileID: 1464818035}
   m_Layer: 0
-  m_Name: Wheel (3)
+  m_Name: Wheel_R_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2460,13 +2460,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3167,6 +3167,7 @@ GameObject:
   - component: {fileID: 1818124696}
   - component: {fileID: 1818124695}
   - component: {fileID: 1818124694}
+  - component: {fileID: 1818124697}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -3183,17 +3184,16 @@ Transform:
   m_GameObject: {fileID: 1818124692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 31.3, y: 3.65, z: -0}
+  m_LocalPosition: {x: 30.75, y: 3.65, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 609289597}
   - {fileID: 1412191281}
   - {fileID: 1866959110}
-  - {fileID: 2063812474}
   - {fileID: 1140175308}
+  - {fileID: 2063812474}
   - {fileID: 1464818034}
-  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1818124694
@@ -3208,9 +3208,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69152802b3f18d24b8677bea912d1416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngle: 65
-  maxTorque: 3000
-  wheelShape: {fileID: 115660, guid: c4b1e6c451cdd40998befa14853156d8, type: 3}
+  frontLeftWheel: {fileID: 1866959111}
+  frontRightWheel: {fileID: 1140175309}
+  rearLeftWheel: {fileID: 2063812475}
+  rearRightWheel: {fileID: 1464818035}
+  maxAngle: 30
+  maxTorque: 1000
+  wheelShape: {fileID: 919132149155446097, guid: 9f171908e17bf134fa4eedbbbe8ff18a, type: 3}
+  maxBrakeTorque: 5000
 --- !u!114 &1818124695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3254,6 +3259,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1818124697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818124692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6232a9d2a9287a43ab7ede66f32d082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticleSystemPrefab: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  MaxHits: 25
+  Radius: 1000
+  HitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BlockExplosionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MaxDamage: 50
+  MinDamage: 10
+  ExplosiveForce: 0
+  timer: 0
+  maxTimer: 60
+  curRadius: 0
+  timerText: {fileID: 1605619247}
 --- !u!1 &1833540576
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,7 +3610,7 @@ GameObject:
   - component: {fileID: 1866959110}
   - component: {fileID: 1866959111}
   m_Layer: 0
-  m_Name: Wheel
+  m_Name: Wheel_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3621,13 +3654,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -3960,7 +3993,7 @@ GameObject:
   - component: {fileID: 2063812474}
   - component: {fileID: 2063812475}
   m_Layer: 0
-  m_Name: Wheel (2)
+  m_Name: Wheel_L_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4004,13 +4037,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 0.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4492,6 +4525,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 943362601}
   - {fileID: 514271849}
